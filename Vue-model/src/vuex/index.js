@@ -10,7 +10,8 @@ const state = {
   message: '5555',
   show: false,
   newList:[],
-  test:10
+  test:10,
+  login:''||localStorage.getItem('login')
 }
 const getters = {
   abc(state){    
@@ -18,6 +19,9 @@ const getters = {
   }
 }
 const mutations = {// 改变状态
+  getLogin(state,x){
+      state.login=x
+  },
   change (state) {
     state.isShow = true
   },

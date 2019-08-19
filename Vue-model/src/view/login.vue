@@ -49,6 +49,8 @@ export default {
       } else if (this.password !== this.users.password) {
         this.$store.dispatch('alertTip2', '密码输入错误')
       } else {
+        this.$store.commit('getLogin',this.name)
+        localStorage.setItem('login',this.$store.state.login)
         this.$router.push({
           path: '/main'
         })

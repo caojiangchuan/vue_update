@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Vux from '../vuex/index'
 
 Vue.use(Router)
 
@@ -50,6 +51,12 @@ export default new Router({
           path: 'lang',
           name: 'lang',
           component: resolve => require(['../components/lang'], resolve)
+        },
+        {
+          path: 'linq',
+          name: 'linq',
+          component: resolve => require(['../components/linq'], resolve),
+          
         }
 
       ]
@@ -58,8 +65,15 @@ export default new Router({
     {
       path: '/active/:id',
       name: 'active',
-      component: resolve => require(['../view/active'], resolve)
-
+      component: resolve => require(['../view/active'], resolve),
+      beforeEnter(to,from,next){                                  //路由独享
+        if(Vux.state.login==""||Vux.state.login==null){
+          alert("请登录");
+          next('/login'); // 禁止跳转
+        }else{
+          next()
+        }
+      }
     },
     {
       path: '/echarts',
@@ -70,4 +84,6 @@ export default new Router({
    
 
   ]
+  
 })
+

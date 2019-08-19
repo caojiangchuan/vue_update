@@ -2,9 +2,9 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
+import Vuex from 'vuex'
 import router from './router'
 import animated from 'animate.css' // npm install animate.css --save安装，再引入
-import Vuex from 'vuex'
 import store from './vuex/index'
 import Axios from 'axios'
 import 'lib-flexible/flexible'
@@ -13,7 +13,7 @@ import VueI18n from 'vue-i18n'
 import LangEn from './lang/en'
 import LangZhCHS from './lang/fw'
 import LangZhCHT from './lang/zw'
-
+import linq from 'linq'
 Vue.use(VueI18n)
 // 修改原型链，全局使用axios,这样之后可在每个组件的methods中调用$axios命令完成数据请求
 Vue.prototype.$axios = Axios
@@ -177,7 +177,7 @@ Vue.use(PageHeader);
 Vue.use(CascaderPanel);
 
 Vue.use(Loading.directive);
-
+Vue.prototype.$linq = linq
 Vue.prototype.$loading = Loading.service;
 Vue.prototype.$msgbox = MessageBox;
 Vue.prototype.$alert = MessageBox.alert;
@@ -192,7 +192,7 @@ var lang = localStorage.getItem('lang')
 
 console.log(lang)
 const i18n = new VueI18n({
-  locale: lang, 
+  locale: lang||'zh_cn', 
   messages:{
     'zn_en': LangEn,
     'zn_ft': LangZhCHS,
@@ -215,6 +215,21 @@ Axios.interceptors.response.use(function (config) {
   store.dispatch('achange2')
   return config
 })
+console.log(store.state.message)
+// router.beforeEach((to,from,next)=>{
+//   if(to.path == '/login' || to.path == '/register'){
+//     next();
+//   }else if(store.state.login==""||store.state.login==null){
+   
+//     MessageBox.alert('您还没有登录，请先登录');
+//       next('/login');
+//     }else{
+     
+//       next()
+//     }
+   
+  
+// })
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
