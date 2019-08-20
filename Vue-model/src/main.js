@@ -236,6 +236,15 @@ new Vue({
   store,
   i18n,
   router,
+  data(){
+    return{
+
+    }
+  },
+  created(){
+    
+  //  alert('1')
+  },
   components: { App },
   template: '<App/>'
 })

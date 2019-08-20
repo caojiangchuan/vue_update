@@ -36,7 +36,7 @@ const mutations = {// 改变状态
     }, 2000)
   },
   getShareApi(state,x){  
-    Api.post('https://qa-api.idax.global/api/v2/signalr/getAllOpenMarkets',null,r=>{
+    Api.post('https://qa2-api.idax.mn/api/v2/signalr/getAllOpenMarkets',null,r=>{
     console.log(r.data)
     state.newList=r.data    
   }) 
