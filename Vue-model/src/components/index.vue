@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>带参数传值跳转动态参数 ONE(动态路由)</p>
+    <p class="com" >带参数传值跳转动态参数 ONE(动态路由)</p>
     <ul>
       <li v-for="(item,index) in list" @click="active(item,index)" class="liii" :key="index">
         {{item.item}}
@@ -16,7 +16,7 @@
     <ul>
       <li v-for="(item,index) in list" @click="activeThree()" :key="index">{{item.item}}</li>
     </ul>
-    <div class="bg" @click="zhezao()">出来遮罩层</div>
+    <div class="bg" @click="zhezao()" >出来遮罩层</div>
     <br />
 
     <br />
@@ -24,7 +24,7 @@
     <br />
 
     <br />
-    <div @click="getCommon">调用公共方法</div>
+    <div @click="getCommon" class="red">调用公共方法</div>
     {{ testtwo }}
     <div @click="add()">change</div>
     <div class="zhezhao" v-if="show" @click="hide">

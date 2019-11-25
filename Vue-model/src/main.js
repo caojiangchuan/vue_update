@@ -15,6 +15,7 @@ import LangZhCHS from './lang/fw'
 import LangZhCHT from './lang/zw'
 import linq from 'linq'
 import Pm from './commit/common'
+import './less/common.less'
 Vue.use(VueI18n)
 // 修改原型链，全局使用axios,这样之后可在每个组件的methods中调用$axios命令完成数据请求
 Vue.prototype.$axios = Axios
