@@ -27,6 +27,7 @@
     <br/>
 
     <br/>
+    <div @click='getCommon'>调用公共方法</div>
 {{ testtwo }}
 <div @click="add()" >change</div>
 <div class="zhezhao" v-if="show" @click="hide">
@@ -84,6 +85,9 @@ export default {
    },1000)  //本地电脑时间，需获取服务端的时间在进行计算
   },
   methods: {
+    getCommon(){
+     this.$pm.testMethod1()
+    },
     sto(){
         event.stopPropagation()
     },

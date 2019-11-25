@@ -14,11 +14,12 @@ import LangEn from './lang/en'
 import LangZhCHS from './lang/fw'
 import LangZhCHT from './lang/zw'
 import linq from 'linq'
+import Pm from './commit/common'
 Vue.use(VueI18n)
 // 修改原型链，全局使用axios,这样之后可在每个组件的methods中调用$axios命令完成数据请求
 Vue.prototype.$axios = Axios
 Vue.prototype.$api = api
-
+Vue.prototype.$pm = Pm
 Vue.use(animated)
 Vue.use(Vuex)
 import 'element-ui/lib/theme-chalk/index.css';
