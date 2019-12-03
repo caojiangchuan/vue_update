@@ -2,7 +2,7 @@
     <div>
       <p class="font">欢迎测试组件传值功能</p>
       <label>父传子：</label>
-      <SonOne :getMessage="fatherGetMessage"></SonOne> <div @click="changeSon()">changeSon</div>
+      <SonOne :getMessage="fatherGetMessage"></SonOne> 
       <br/>
       <label>子传父：</label>
       <SonTwo @givefather="getsonchange"></SonTwo>{{getson}}<br/>
