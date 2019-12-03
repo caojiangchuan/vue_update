@@ -18,16 +18,22 @@ export default {
     
     }
   },
+  created(){
+  console.log('s'+'cre')
+
+  },
   mounted(){
     bus.$on('give',this.data)
-    console.log(this.getMessage)
+  console.log('s'+'mou')
+
+    // console.log(this.getMessage)
   },
   methods:{
   giveF(){
   alert('1')
 },
 data(e){
-  console.log(e)
+  // console.log(e)
 }
   }
 }

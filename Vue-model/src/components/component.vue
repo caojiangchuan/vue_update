@@ -28,7 +28,21 @@ export default {
       getson:''
     }
   },
+  beforeCreate(){
+debugger
+  },
+  created(){
+debugger
+
+  },
+  beforeMount(){
+debugger
+
+  },
   mounted(){
+debugger
+
+  console.log('f'+'mou')
     
   },
   methods: {
@@ -38,7 +52,7 @@ export default {
     },
 
     getsonchange(e){
-     console.log(e)
+    //  console.log(e)
      this.getson=e
     },
 
