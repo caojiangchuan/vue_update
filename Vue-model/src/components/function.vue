@@ -29,10 +29,14 @@ export default {
   },
   created () {
       console.log(localStorage.getItem(lang))
+      
   },
   mounted(){
     
-
+this.$api.post('Web/test',null, res => { 
+  console.log(res) 
+  }) 
+      
 
     console.log(this.$store.state.test)//vuex原始值
     this.$store.commit('getShareApi',1)//改变vuex值

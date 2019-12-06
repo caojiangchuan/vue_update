@@ -218,6 +218,8 @@ Axios.interceptors.response.use(function (config) {
   return config
 })
 console.log(store.state.message)
+
+
 // router.beforeEach((to,from,next)=>{
 //   if(to.path == '/login' || to.path == '/register'){
 //     next();

@@ -12,6 +12,10 @@ export default {
   created () {
     console.log(this.$route)
   },
+  mounted(){
+  
+  },
+
   data(){
     return{
 

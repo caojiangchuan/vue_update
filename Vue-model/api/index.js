@@ -1,5 +1,6 @@
-var root = 'https://qa2-api.idax.mn/api'
+// var root = 'https://qa2-api.idax.mn/api'
 // 引用axios
+var root = process.env.API
 var axios = require('axios')
 // 自定义判断元素类型JS
 function toType (obj) {
