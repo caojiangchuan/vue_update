@@ -3,6 +3,12 @@
     <span @click="giveFather">点击传递值给父组件||调用父组件的方法</span>
     <div @click="childMethod()">点击调用父组件</div>
     <div @click="changebus">触发bus兄弟传值</div>
+    <slot name='show'></slot>
+    <slot name='hide'></slot>
+
+    <slot></slot>
+    
+    <!-- 插槽 -->
   </div>
 </template>
 

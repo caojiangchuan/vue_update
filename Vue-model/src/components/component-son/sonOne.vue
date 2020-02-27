@@ -33,7 +33,7 @@ export default {
   alert('1')
 },
 data(e){
-  // console.log(e)
+  console.log(e)
 }
   }
 }

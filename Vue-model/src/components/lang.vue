@@ -18,7 +18,6 @@ export default {
         }
     },
     mounted(){
-      
         this.list.forEach((item,index)=>{
          if(item.lang==localStorage.getItem('lang')){
             this.idx=index
@@ -27,7 +26,13 @@ export default {
  
      
     },
-    methods:{
+    beforeUpdate(){
+   alert('1')
+    },
+    updated(){
+alert('2')
+    },
+        methods:{
     ulli(){
         console.log(this)
     },

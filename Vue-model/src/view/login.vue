@@ -45,10 +45,12 @@ export default {
     // console.log(defa)
   //  console.log(one)
   //  abc()
+  console.log(process.env)
 
    let ipt = document.getElementById('ipt')
    let pig = document.getElementById('pig')
-   var obj ={}
+   var obj ={} 
+   var txt='123'
    Object.defineProperty(obj,'txt',{
      get:function(){
      console.log('我被调用了')
@@ -60,7 +62,9 @@ export default {
      console.log(newvalue,'我被设置了')
      }
    })
-   document.addEventListener('keyup',function(e){
+   console.log(obj.txt)
+   document.addEventListener('input',function(e){
+    console.log('11')
      obj.txt=e.target.value//监听事件不断的给obj中的txt赋值，即不断的回调set中的函数
    })
    

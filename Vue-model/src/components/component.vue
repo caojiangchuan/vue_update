@@ -2,10 +2,11 @@
     <div>
       <p class="font">欢迎测试组件传值功能</p>
       <label>父传子：</label>
-      <SonOne :getMessage="fatherGetMessage"></SonOne> 
+      <SonOne :getMessage="fatherGetMessage">
+        </SonOne> 
       <br/>
       <label>子传父：</label>
-      <SonTwo @givefather="getsonchange"></SonTwo>{{getson}}<br/>
+      <SonTwo @givefather="getsonchange"><p>000</p><div style="color:red" slot="show"></div></SonTwo>{{getson}}<br/>
       <br/>
       <label>父调子方法：</label>
        <SonOne ref="mychild"></SonOne> <div @click="getSonMethods">调用子组件方法</div>
@@ -29,18 +30,14 @@ export default {
     }
   },
   beforeCreate(){
-debugger
   },
   created(){
-debugger
 
   },
   beforeMount(){
-debugger
 
   },
   mounted(){
-debugger
 
   console.log('f'+'mou')
     

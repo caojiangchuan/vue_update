@@ -57,6 +57,12 @@ export default new Router({
           name: 'linq',
           component: resolve => require(['../components/linq'], resolve),
           
+        },
+        {
+          path: 'lazy',
+          name: 'lazy',
+          component: resolve => require(['../components/lazy'], resolve),
+          
         }
 
       ]
@@ -81,6 +87,12 @@ export default new Router({
       component: resolve => require(['../components/echats/echarts'], resolve)
 
     },
+    {
+      path:'*',
+      name:'error',
+      component: resolve => require(['../view/error'], resolve)
+
+    }
    
 
   ]

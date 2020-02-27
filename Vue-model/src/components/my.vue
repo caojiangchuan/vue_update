@@ -3,7 +3,7 @@
      <div @click="about">调用接口</div>
      <div @click="lang">多语言功能</div>
      <div @click="linq">linq使用功能</div>
-      
+      <div @click="lazy">懒加载</div>
     </div>
 </template>
 
@@ -32,6 +32,11 @@ export default {
     linq(){
       this.$router.push({
         path: 'linq'
+      })
+    },
+    lazy(){
+      this.$router.push({
+        path:'lazy'
       })
     }
   },

@@ -38,6 +38,9 @@
 
 <script>
 import { setInterval, clearInterval } from "timers";
+const common = require('../common/common') //common.js方法
+import de from '../commit/default'//export default 可以整体引用
+import {abc} from '../commit/oneFunction'//export 单独调用方法
 export default {
   name: "index",
   data() {
@@ -49,6 +52,7 @@ export default {
       show: false
     };
   },
+  
   computed: {
     testtwo: {
       get: function() {
@@ -64,9 +68,13 @@ export default {
     }
   },
   created() {
+    abc()
     // alert(this.$route.params.id)
   },
   mounted() {
+    common.x(10)
+    alert(de.one)
+    
     this.go();
     this.timess = setInterval(() => {
       this.go();
@@ -131,7 +139,7 @@ export default {
     activeThree() {
       this.$router.push({
         name: "active",
-        params: { id: "1" }
+        params: { id: "1",gg:'22' }
       });
     }
   }

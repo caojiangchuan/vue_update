@@ -24,6 +24,10 @@ Vue.prototype.$pm = Pm
 Vue.use(animated)
 Vue.use(Vuex)
 import 'element-ui/lib/theme-chalk/index.css';
+import VueLazyload from 'vue-lazyload'
+Vue.use(VueLazyload,{
+  loading: 'https://img.alicdn.com/tfs/TB18tFCCH2pK1RjSZFsXXaNlXXa-240-34.svg',  //图片加载的路径
+})//占位图懒加载
 import {
   Pagination,
   Dialog,
@@ -220,20 +224,20 @@ Axios.interceptors.response.use(function (config) {
 console.log(store.state.message)
 
 
-// router.beforeEach((to,from,next)=>{
-//   if(to.path == '/login' || to.path == '/register'){
-//     next();
-//   }else if(store.state.login==""||store.state.login==null){
+router.beforeEach((to,from,next)=>{
+  if(to.path == '/login' || to.path == '/register'){
+    next();
+  }else if(store.state.login==""||store.state.login==null){
    
-//     MessageBox.alert('您还没有登录，请先登录');
-//       next('/login');
-//     }else{
+    MessageBox.alert('您还没有登录，请先登录');
+      next('/login');
+    }else{
      
-//       next()
-//     }
+      next()
+    }
    
   
-// })
+})  //路由守卫
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
