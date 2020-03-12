@@ -13,15 +13,17 @@
         <br/>
       <label >子调父方法：</label>
        <SonTwo></SonTwo>
+       <label>$attrs</label>
+       <FirstSone :name="'tome'"  age="'18'" address="'浦东新区'"></FirstSone>
     </div>
 </template>
 
 <script>
 import SonOne from './component-son/sonOne'
 import SonTwo from './component-son/sonTwo'
-
+import FirstSone from '../components/firstSon'
 export default {
-  components: {SonOne, SonTwo},
+  components: {SonOne, SonTwo,FirstSone},
   name: 'component',
   data () {
     return {
