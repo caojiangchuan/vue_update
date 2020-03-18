@@ -1,111 +1,113 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-import Vue from 'vue'
-import App from './App'
-import Vuex from 'vuex'
-import router from './router'
-import animated from 'animate.css' // npm install animate.css --save安装，再引入
-import store from './vuex/index'
-import Axios from 'axios'
-import 'lib-flexible/flexible'
-import api from '../api/index'
-import VueI18n from 'vue-i18n'
-import LangEn from './lang/en'
-import LangZhCHS from './lang/fw'
-import LangZhCHT from './lang/zw'
-import linq from 'linq'
-import Pm from './commit/common'
-import './less/common.less'
-Vue.use(VueI18n)
+import Vue from 'vue';
+import App from './App';
+import Vuex from 'vuex';
+import router from './router';
+import animated from 'animate.css'; // npm install animate.css --save安装，再引入
+import store from './vuex/index';
+import Axios from 'axios';
+import 'lib-flexible/flexible';
+import api from '../api/index';
+import VueI18n from 'vue-i18n';
+import LangEn from './lang/en';
+import LangZhCHS from './lang/fw';
+import LangZhCHT from './lang/zw';
+import linq from 'linq';
+import Pm from './commit/common';
+import './less/common.less';
+import VueScrollactive from 'vue-scrollactive';
+Vue.use(VueScrollactive);
+Vue.use(VueI18n);
 // 修改原型链，全局使用axios,这样之后可在每个组件的methods中调用$axios命令完成数据请求
-Vue.prototype.$axios = Axios
-Vue.prototype.$api = api
-Vue.prototype.$pm = Pm
-Vue.use(animated)
-Vue.use(Vuex)
+Vue.prototype.$axios = Axios;
+Vue.prototype.$api = api;
+Vue.prototype.$pm = Pm;
+Vue.use(animated);
+Vue.use(Vuex);
 import 'element-ui/lib/theme-chalk/index.css';
-import VueLazyload from 'vue-lazyload'
-Vue.use(VueLazyload,{
-  loading: 'https://img.alicdn.com/tfs/TB18tFCCH2pK1RjSZFsXXaNlXXa-240-34.svg',  //图片加载的路径
-})//占位图懒加载
+import VueLazyload from 'vue-lazyload';
+Vue.use(VueLazyload, {
+    loading: 'https://img.alicdn.com/tfs/TB18tFCCH2pK1RjSZFsXXaNlXXa-240-34.svg', // 图片加载的路径
+}); // 占位图懒加载
 import {
-  Pagination,
-  Dialog,
-  Autocomplete,
-  Dropdown,
-  DropdownMenu,
-  DropdownItem,
-  Menu,
-  Submenu,
-  MenuItem,
-  MenuItemGroup,
-  Input,
-  InputNumber,
-  Radio,
-  RadioGroup,
-  RadioButton,
-  Checkbox,
-  CheckboxButton,
-  CheckboxGroup,
-  Switch,
-  Select,
-  Option,
-  OptionGroup,
-  Button,
-  ButtonGroup,
-  Table,
-  TableColumn,
-  DatePicker,
-  TimeSelect,
-  TimePicker,
-  Popover,
-  Tooltip,
-  Breadcrumb,
-  BreadcrumbItem,
-  Form,
-  FormItem,
-  Tabs,
-  TabPane,
-  Tag,
-  Tree,
-  Alert,
-  Slider,
-  Icon,
-  Row,
-  Col,
-  Upload,
-  Progress,
-  Spinner,
-  Badge,
-  Card,
-  Rate,
-  Steps,
-  Step,
-  Carousel,
-  CarouselItem,
-  Collapse,
-  CollapseItem,
-  Cascader,
-  ColorPicker,
-  Transfer,
-  Container,
-  Header,
-  Aside,
-  Main,
-  Footer,
-  Timeline,
-  TimelineItem,
-  Link,
-  Divider,
-  Image,
-  Calendar,
-  Backtop,
-  PageHeader,
-  CascaderPanel,
-  Loading,
-  MessageBox,
-  Message,
-  Notification
+    Pagination,
+    Dialog,
+    Autocomplete,
+    Dropdown,
+    DropdownMenu,
+    DropdownItem,
+    Menu,
+    Submenu,
+    MenuItem,
+    MenuItemGroup,
+    Input,
+    InputNumber,
+    Radio,
+    RadioGroup,
+    RadioButton,
+    Checkbox,
+    CheckboxButton,
+    CheckboxGroup,
+    Switch,
+    Select,
+    Option,
+    OptionGroup,
+    Button,
+    ButtonGroup,
+    Table,
+    TableColumn,
+    DatePicker,
+    TimeSelect,
+    TimePicker,
+    Popover,
+    Tooltip,
+    Breadcrumb,
+    BreadcrumbItem,
+    Form,
+    FormItem,
+    Tabs,
+    TabPane,
+    Tag,
+    Tree,
+    Alert,
+    Slider,
+    Icon,
+    Row,
+    Col,
+    Upload,
+    Progress,
+    Spinner,
+    Badge,
+    Card,
+    Rate,
+    Steps,
+    Step,
+    Carousel,
+    CarouselItem,
+    Collapse,
+    CollapseItem,
+    Cascader,
+    ColorPicker,
+    Transfer,
+    Container,
+    Header,
+    Aside,
+    Main,
+    Footer,
+    Timeline,
+    TimelineItem,
+    Link,
+    Divider,
+    Image,
+    Calendar,
+    Backtop,
+    PageHeader,
+    CascaderPanel,
+    Loading,
+    MessageBox,
+    Message,
+    Notification
 } from 'element-ui';
 
 Vue.use(Pagination);
@@ -183,7 +185,7 @@ Vue.use(PageHeader);
 Vue.use(CascaderPanel);
 
 Vue.use(Loading.directive);
-Vue.prototype.$linq = linq
+Vue.prototype.$linq = linq;
 Vue.prototype.$loading = Loading.service;
 Vue.prototype.$msgbox = MessageBox;
 Vue.prototype.$alert = MessageBox.alert;
@@ -191,68 +193,72 @@ Vue.prototype.$confirm = MessageBox.confirm;
 Vue.prototype.$prompt = MessageBox.prompt;
 Vue.prototype.$notify = Notification;
 Vue.prototype.$message = Message;
-if(localStorage.getItem('lang')==''){
-  localStorage.setItem('lang','zh_cn')
+if (localStorage.getItem('lang') == '') {
+    localStorage.setItem('lang', 'zh_cn');
 }
-var lang = localStorage.getItem('lang')
 
-console.log(lang)
+var lang = localStorage.getItem('lang');
+
+console.log(lang);
 const i18n = new VueI18n({
-  locale: lang||'zh_cn', 
-  messages:{
-    'zn_en': LangEn,
-    'zn_ft': LangZhCHS,
-    'zh_cn': LangZhCHT
-  }
-})
-Vue.config.productionTip = false// 引入store
+    locale: lang || 'zh_cn',
+    messages: {
+        zn_en: LangEn,
+        zn_ft: LangZhCHS,
+        zh_cn: LangZhCHT
+    }
+});
+Vue.config.productionTip = false; // 引入store
 Axios.interceptors.request.use(function (config) {
-  // store.state.isShow = false 或者
+    // store.state.isShow = false 或者
 
-  store.dispatch('achange')
-  // setTimeout(function () {
-  //   store.state.isShow = false
-  // }, 5000)
+    store.dispatch('achange');
+    // setTimeout(function () {
+    //   store.state.isShow = false
+    // }, 5000)
 
-  return config
-})
+    return config;
+});
 // 定义一个响应拦截器
 Axios.interceptors.response.use(function (config) {
-  store.dispatch('achange2')
-  return config
-})
-console.log(store.state.message)
+    store.dispatch('achange2');
+    return config;
+});
+console.log(store.state.message);
 
-
-router.beforeEach((to,from,next)=>{
-  if(to.path == '/login' || to.path == '/register'){
-    next();
-  }else if(store.state.login==""||store.state.login==null){
-   
-    MessageBox.alert('您还没有登录，请先登录');
-      next('/login');
-    }else{
-     
-      next()
+router.beforeEach((to, from, next) => {
+    if (to.path == '/login' || to.path == '/register') {
+        next();
     }
-   
-  
-})  //路由守卫
+    else if (store.state.login == '' || store.state.login == null) {
+
+        MessageBox.alert('您还没有登录，请先登录');
+        next('/login');
+    }
+    else {
+
+        next();
+    }
+
+}); // 路由守卫
+
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  store,
-  i18n,
-  router,
-  data(){
-    return{
+    el: '#app',
+    store,
+    i18n,
+    router,
+    data() {
+        return {
 
-    }
-  },
-  created(){
-    
-  //  alert('1')
-  },
-  components: { App },
-  template: '<App/>'
-})
+        };
+    },
+    created() {
+
+        //  alert('1')
+    },
+    components: {
+        App
+    },
+    template: '<App/>'
+});
