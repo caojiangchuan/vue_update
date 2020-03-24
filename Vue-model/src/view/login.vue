@@ -19,80 +19,86 @@
 </template>
 
 <script>
-import { Alert } from "element-ui";
-import {one,abc} from '../commit/oneFunction'
-import defa from '../commit/default'
-import '../less/test.less'
+import {Alert} from 'element-ui';
+import {one, abc} from '../commit/oneFunction';
+import defa from '../commit/default';
+import '../less/test.less';
 export default {
-  name: "login",
+    name: 'login',
 
-  components: {
-    [Alert.name]: Alert
-  },
-  data() {
-    return {
-      show: false,
-      name: "",
-      password: "",
-      users: {
-        name: "15606926118",
-        password: "666666"
-      }
-    };
-  },
-  
-  mounted(){
-    // console.log(defa)
-  //  console.log(one)
-  //  abc()
-  console.log(process.env)
-
-   let ipt = document.getElementById('ipt')
-   let pig = document.getElementById('pig')
-   var obj ={} 
-   var txt='123'
-   Object.defineProperty(obj,'txt',{
-     get:function(){
-     console.log('我被调用了')
-     return obj
-     },
-     set:function(newvalue){
-     ipt.value=newvalue
-     pig.innerHTML=newvalue
-     console.log(newvalue,'我被设置了')
-     }
-   })
-   console.log(obj.txt)
-   document.addEventListener('input',function(e){
-    console.log('11')
-     obj.txt=e.target.value//监听事件不断的给obj中的txt赋值，即不断的回调set中的函数
-   })
-   
-   
-  },
-
-  methods: {
-    hi() {
-      this.show = !this.show;
+    components: {
+        [Alert.name]: Alert
     },
-    btn() {
-      if (this.name === "") {
-        this.$store.dispatch("alertTip2", "账号不能为空");
-      } else if (this.name !== this.users.name) {
-        this.$store.dispatch("alertTip2", "账号输入错误");
-      } else if (this.password === "") {
-        this.$store.dispatch("alertTip2", "密码不能为空");
-      } else if (this.password !== this.users.password) {
-        this.$store.dispatch("alertTip2", "密码输入错误");
-      } else {
-        this.$store.commit("getLogin", this.name);
-        localStorage.setItem("login", this.$store.state.login);
-        this.$router.push({
-          path: "/main"
+    data() {
+        return {
+            show: false,
+            name: '',
+            password: '',
+            users: {
+                name: '15606926118',
+                password: '666666'
+            }
+        };
+    },
+
+    mounted() {
+        this.$api.get('/find', null, res => {
+            console.log(res);
         });
-      }
+        // console.log(defa)
+        //  console.log(one)
+        //  abc()
+        console.log(process.env);
+
+        let ipt = document.getElementById('ipt');
+        let pig = document.getElementById('pig');
+        var obj = {};
+        var txt = '123';
+        Object.defineProperty(obj, 'txt', {
+            get: function () {
+                console.log('我被调用了');
+                return obj;
+            },
+            set: function (newvalue) {
+                ipt.value = newvalue;
+                pig.innerHTML = newvalue;
+                console.log(newvalue, '我被设置了');
+            }
+        });
+        console.log(obj.txt);
+        document.addEventListener('input', function (e) {
+            console.log('11');
+            obj.txt = e.target.value; // 监听事件不断的给obj中的txt赋值，即不断的回调set中的函数
+        });
+
+    },
+
+    methods: {
+        hi() {
+            this.show = !this.show;
+        },
+        btn() {
+            if (this.name === '') {
+                this.$store.dispatch('alertTip2', '账号不能为空');
+            }
+            else if (this.name !== this.users.name) {
+                this.$store.dispatch('alertTip2', '账号输入错误');
+            }
+            else if (this.password === '') {
+                this.$store.dispatch('alertTip2', '密码不能为空');
+            }
+            else if (this.password !== this.users.password) {
+                this.$store.dispatch('alertTip2', '密码输入错误');
+            }
+            else {
+                this.$store.commit('getLogin', this.name);
+                localStorage.setItem('login', this.$store.state.login);
+                this.$router.push({
+                    path: '/main'
+                });
+            }
+        }
     }
-  }
 };
 </script>
 
