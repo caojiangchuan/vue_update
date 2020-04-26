@@ -5,7 +5,7 @@
      <div @click="linq">linq使用功能</div>
       <div @click="lazy">懒加载</div>
       <div @click="scroll">锚地动画</div>
-
+      <div @click="swiper">swiper</div>
     </div>
 </template>
 
@@ -44,6 +44,11 @@ export default {
         scroll() {
             this.$router.push({
                 path: 'scroll'
+            });
+        },
+        swiper(){
+             this.$router.push({
+                path: 'swiper'
             });
         }
 

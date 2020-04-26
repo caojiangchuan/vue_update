@@ -11,14 +11,21 @@ const state = {
     show: false,
     newList: [],
     test: 10,
-    login: '' || localStorage.getItem('login')
+    login: '' || localStorage.getItem('login'),
+    vuextext: ''
 };
 const getters = {
     abc(state) {
         return state.test - 5;
+    },
+    vuextext(state) {
+        return state.vuextext;
     }
 };
 const mutations = { // 改变状态
+    vuextext(state, x) {
+        state.vuextext = x;
+    },
     getLogin(state, x) {
         state.login = x;
     },

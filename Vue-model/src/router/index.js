@@ -68,7 +68,11 @@ export default new Router({
                     path: 'lazy',
                     name: 'lazy',
                     component: resolve => require(['../components/lazy'], resolve)
-
+                },
+                {
+                    path: 'swiper',
+                    name: 'swiper',
+                    component: resolve => require(['../components/swiper'], resolve)
                 }
 
             ]

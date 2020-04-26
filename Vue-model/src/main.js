@@ -17,6 +17,9 @@ import linq from 'linq';
 import Pm from './commit/common';
 import './less/common.less';
 import VueScrollactive from 'vue-scrollactive';
+import VueAwesomeSwiper from 'vue-awesome-swiper';
+import 'swiper/css/swiper.css';
+Vue.use(VueAwesomeSwiper)
 Vue.use(VueScrollactive);
 Vue.use(VueI18n);
 // 修改原型链，全局使用axios,这样之后可在每个组件的methods中调用$axios命令完成数据请求
